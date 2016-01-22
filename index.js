@@ -6,8 +6,8 @@
  */
 module.exports = class ProtonService {
 
-  constructor(app) {
-    this.app = app
+  constructor(proton) {
+    this.proton = proton
     this._bindToApp()
     this.expose()
   }
@@ -34,7 +34,7 @@ module.exports = class ProtonService {
    * @description Bind this service to the app.services objects
    */
   _bindToApp() {
-    this.app.services[this.name] = this
+    this.proton.app.services[this.name] = this
   }
 
 }
