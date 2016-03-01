@@ -1,40 +1,33 @@
 'use strict'
 
+
+const Gluon = require('proton-gluon')
+
+
 /**
- * Base Service
- * Inherit of this class for create services
+ * @class
+ * @classdesc this class define a proton service
+ * @author Luis Hernandez
  */
-module.exports = class ProtonService {
+class ProtonService extends Gluon {
 
   constructor(proton) {
     this.proton = proton
-    this._bindToApp()
-    this.expose()
   }
 
-  /**
-   * @return class name
-   */
+  expose(service) {
+    global[this.name] = service
+  }
+
   get name() {
     return this.constructor.name
   }
 
-  /**
-   * @description Expose this service globally,
-   * Overwrite and return false for not expose the service
-   *
-   * @return true | false
-   */
-  expose() {
-    global[this.name] = this
-    return true
+  set fileName(fileName) {
+    this.fileName = fileName
   }
 
-  /**
-   * @description Bind this service to the app.services objects
-   */
-  _bindToApp() {
-    this.proton.app.services[this.name] = this
-  }
 
 }
+
+module.exports = ProtonService
