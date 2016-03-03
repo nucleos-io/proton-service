@@ -1,32 +1,18 @@
 'use strict'
 
 
-const Gluon = require('proton-gluon')
-
+const BaseClass = require('proton-base-class')
 
 /**
  * @class
  * @classdesc this class define a proton service
  * @author Luis Hernandez
  */
-class ProtonService extends Gluon {
+class ProtonService extends BaseClass {
 
   constructor(proton) {
-    this.proton = proton
+    super(proton)
   }
-
-  expose(service) {
-    global[this.name] = service
-  }
-
-  get name() {
-    return this.constructor.name
-  }
-
-  set fileName(fileName) {
-    this.fileName = fileName
-  }
-
 
 }
 

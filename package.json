@@ -1,6 +1,6 @@
 {
   "name": "proton-service",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nucleos-io/proton-service/issues"
+  },
+  "dependencies": {
+    "proton-base-class": "^1.0.0"
   }
 }
